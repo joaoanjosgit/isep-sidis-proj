@@ -1,0 +1,46 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Sequence Diagram - As Marketing director, I want to define a new Plan
+
+actor "Marketing Director" as Ac
+participant ":PlanController" as Ctrl
+participant ":PlansService" as Serv
+participant ":PlansRepository" as Repo
+participant ":PlansRepositoryBD" as RepoBD
+participant ":PlansRepositoryExternal" as RepoExternal
+participant ":CreatePlansMapper" as Mapper
+
+Ac -> Ctrl : POST /plans
+Ctrl -> Serv : create(CreatePlanRequest resource)
+Serv -> Repo: findIfNameExists(name)
+Repo -> RepoBD: findByName_Name(name)
+alt Name found in local Repo
+    RepoBD --> Repo: Name exists locally
+    Repo --> Serv: true
+else Name not found in local Repo
+    Repo -> RepoExternal: httpExistPlan(name)
+    RepoExternal -> RepoExternal : GET /plans/external/{name}
+    RepoExternal --> Repo: Response from external system
+    alt Name found in external Repo
+        Repo --> Serv: true
+    else Name not found in external Repo
+        Repo --> Serv: false
+    end
+end
+
+Serv --> Serv: true or false
+alt nameExists - true
+    Serv -> Ctrl : throw IllegalArgumentException
+else nameNotExists - false
+    Serv -> Mapper : create(resource)
+    Mapper --> Serv : obj
+    Serv -> Repo : saveBD(obj)
+    Repo -> RepoBD : save(obj)
+    RepoBD --> Serv : obj
+    Serv --> Ctrl : plan
+    Ctrl -> Ac : plan
+end
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Sequence Diagram - As User, I want to register an account
+
+actor "User" as Ac
+participant ":UserController" as Ctrl
+participant ":UserService" as Serv
+participant ":UserRepository" as RepoBD
+participant ":User" as U
+
+
+Ac -> Ctrl : POST /register
+Ctrl -> Serv : register(CreateUserRequest resource)
+Serv -> RepoBD: findIfUserExists(username)
+    RepoBD --> Serv: true
+
+    Serv -> U : newUser(username, password, Subscriber)
+    Serv -> RepoBD : save(obj)
+    RepoBD --> Serv : obj
+    Serv --> Ctrl : user
+    Ctrl -> Ac : user
+
+
+@enduml

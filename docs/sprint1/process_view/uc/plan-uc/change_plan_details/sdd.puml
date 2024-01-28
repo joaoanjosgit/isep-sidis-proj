@@ -1,0 +1,15 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - To edit a Plan
+
+actor "Marketing Director" as Ac
+participant "System" as Sys
+
+Ac -> Sys : PATCH /plans/{name}
+Sys --> Ac : informs operation (in)success
+
+
+@enduml
+

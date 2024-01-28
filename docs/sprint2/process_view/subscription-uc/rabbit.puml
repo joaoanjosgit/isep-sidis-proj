@@ -1,0 +1,32 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - Define a New Plan
+
+participant "SubsC[n]:SubsC" as SC
+participant "SubsQ[n]:SubsQ:" as SQ
+participant "Message Broker:" as mb
+
+activate mb
+SC -> mb : subscribe(created_plan)
+SC -> mb : subscribe(created_user)
+SC -> mb : subscribe(cancel_subscription)
+SC -> mb : subscribe(change_subscription)
+SC -> mb : subscribe(create_subscription)
+SC -> mb : subscribe(renew_subscription)
+
+SQ -> mb : subscribe(created_plan)
+SQ -> mb : subscribe(created_user)
+SQ -> mb : subscribe(cancel_subscription)
+SQ -> mb : subscribe(change_subscription)
+SQ -> mb : subscribe(create_subscription)
+SQ -> mb : subscribe(renew_subscription)
+deactivate mb
+
+note left
+[n] represents the instances
+it can be n instances
+end note
+
+@enduml

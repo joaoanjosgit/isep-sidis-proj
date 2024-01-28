@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="UserBootstrapServiceMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="UserBootstrapService" nameIsGenerated="true">
+    <module name="user-bootstrap-service" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.UserBootstrapServiceMain" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,40 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - As User, I want to register an account
+
+actor "User" as Ac
+participant "userC[n]:UserC" as UC
+participant "userQ[n]:UserQ" as UQ
+participant "SubsC[n]:SubsC" as SC
+participant "SubsQ[n]:SubsQ:" as SQ
+participant "Message Broker:" as mb
+
+
+Ac -> UC ++ : POST /register
+UC -> UC : save()
+UC -> mb ++ : publish(register_user, user)
+note left
+[n] represents the the instances
+it can be n instances
+end note
+UC --> Ac -- : informs operation (in)success
+
+...
+
+
+mb -> UC ++ : notify(register_user, user)
+UC -> UC -- : save(user)
+
+mb -> UQ ++ : notify(register_user, user)
+UQ -> UQ -- : save(user)
+
+mb -> SC ++ : notify(register_user, user)
+SC -> SC -- : save(user)
+
+mb -> SQ ++ : notify(register_user, user)
+SQ -> SQ : save(user)
+
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - Deactivate a Plan
+
+actor "Marketing Director" as Ac
+participant "System" as Sys
+
+Ac -> Sys : PATCH /plans/deactivate/{name}
+Sys --> Ac : informs operation (in)success
+
+
+@enduml
+

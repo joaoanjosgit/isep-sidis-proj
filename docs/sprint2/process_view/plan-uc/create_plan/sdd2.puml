@@ -1,0 +1,40 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - Define a New Plan
+
+actor "Marketing Director" as Ac
+participant "planC[n]:planC" as PC
+participant "PlanQ[n]:planQ" as PQ
+participant "SubsC[n]:SubsC" as SC
+participant "SubsQ[n]:SubsQ:" as SQ
+participant "Message Broker:" as mb
+
+
+Ac -> PC ++ : POST /plans
+PC -> PC : save(plan)
+PC -> mb ++ : publish(created_plan, plan)
+note left
+[n] represents the instances
+it can be n instances
+end note
+PC --> Ac -- : informs operation (in)success
+
+...
+
+mb -> PC ++ : notify(created_plan, plan)
+PC -> PC -- : save(plan)
+
+mb -> PQ ++ : notify(created_plan, plan)
+PQ -> PQ -- : save(plan)
+
+mb -> SC ++ : notify(created_plan, plan)
+SC -> SC -- : save(plan)
+
+mb -> SQ ++ : notify(created_plan, plan)
+SQ -> SQ : save(plan)
+
+deactivate mb
+
+@enduml

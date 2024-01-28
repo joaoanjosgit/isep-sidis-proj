@@ -1,0 +1,46 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Sequence Diagram - As User, I want to register an account
+
+actor "User" as Ac
+participant ":UserController" as Ctrl
+participant ":UserService" as Serv
+participant ":UserRepository" as Repo
+participant ":UserRepositoryBD" as RepoBD
+participant ":UserRepositoryExternal" as RepoExternal
+participant ":User" as U
+
+Ac -> Ctrl : POST /register
+Ctrl -> Serv : register(CreateUserRequest resource)
+Serv -> Repo: findIfUserExists(username)
+Repo -> RepoBD: findByUsername(username)
+alt Name found in local Repo
+    RepoBD --> Repo: Name exists locally
+    Repo --> Serv: true
+else Name not found in local Repo
+    Repo -> RepoExternal: httpExistsUser(username)
+    RepoExternal -> RepoExternal : GET /user/external/{name}
+    RepoExternal --> Repo: Response from external system
+    alt Name found in external Repo
+        Repo --> Serv: true
+    else Name not found in external Repo
+        Repo --> Serv: false
+    end
+end
+
+Serv --> Serv: true or false
+alt nameExists - true
+    Serv -> Ctrl : throw IllegalArgumentException
+else nameNotExists - false
+    Serv -> U : newUser(username, password, Subscriber)
+    Mapper --> Serv : obj
+    Serv -> Repo : saveBD(obj)
+    Repo -> RepoBD : save(obj)
+    RepoBD --> Serv : obj
+    Serv --> Ctrl : user
+    Ctrl -> Ac : user
+end
+
+@enduml

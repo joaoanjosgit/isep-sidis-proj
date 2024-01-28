@@ -1,0 +1,19 @@
+@startuml
+'autocomplete on
+autonumber
+
+title System Sequence Diagram  - To create a Subscription
+
+actor "Costumer" as Ac
+participant "System" as Sys
+
+Ac -> Sys : POST /subscriptions/create
+
+Sys -> Sys : create
+
+
+Sys --> Ac : informs operation (un)successful
+
+
+@enduml
+

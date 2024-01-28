@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PlanCommandServiceMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="PlanCommandService" nameIsGenerated="true">
+    <module name="plan-command-service" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.PlanCommandServiceMain" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

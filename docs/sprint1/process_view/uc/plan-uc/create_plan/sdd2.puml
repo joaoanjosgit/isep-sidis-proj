@@ -1,0 +1,27 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - Define a New Plan
+
+actor "Marketing Director" as Ac
+box "System" #lightblue
+participant "plans1" as Sys
+participant "plans2" as Sys2
+end box
+
+Ac -> Sys : POST /plans
+Sys -> Sys : findPlan(name)
+Sys -> Sys2 : GET /plans/external/{name}
+Sys2 --> Sys : true or false
+
+alt nameExists - true
+    Sys --> Sys : informs operation insuccess
+else nameNotExists - false
+    Sys -> Sys : create(name)
+    Sys --> Ac : informs operation (in)success
+end
+
+
+
+@enduml

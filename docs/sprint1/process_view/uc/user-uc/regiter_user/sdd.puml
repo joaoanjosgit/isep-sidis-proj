@@ -1,0 +1,13 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - As User, I want to register an account
+
+actor "User" as Ac
+participant ":System" as Sys
+
+Ac -> Sys : POST /register
+Sys --> Ac : informs operation (in)success
+
+@enduml

@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide circle
+class PlansRepositoryBD <<interface>>
+
+title Class Diagram / As Marketing director, I want to edit a Plan
+
+
+
+class Plans{
+    -name
+    - description
+    - numberOfMinutes
+    -maximumNumberOfUsers
+    -musicCollection
+     -musicSuggestion
+     -annualFee
+     -monthlyFee
+     -active
+     -promoted
+     +updateData(long desiredVersion, String description, Integer maximumNumberOfUsers,String numberOfMinutes , Integer musicCollections,String musicSuggestions, Boolean active, Boolean promoted) void
+}
+class PlansViewMapper{
+    +toPlansView(Plans plans):PlansView
+}
+class PlansController{
+     +partialUpdate(final String name, final EditPlanRequest resource):ResponseEntity<PlansView>
+    }
+class PlansService{
+ +partialUpdate(final String name, final EditPlansRequest resource, final long desiredVersion):Plans
+
+}
+
+interface PlansRepositoryBD
+{
++findByName_Name(String name): Optional<Plans>
++save(S entity) : <S extends Plans>
+}
+
+
+PlansController ..> PlansService: uses >
+PlansService ..> PlansRepositoryBD: uses >
+PlansRepositoryBD ..> Plans: < record
+PlansController ..>PlansViewMapper: uses >
+@enduml

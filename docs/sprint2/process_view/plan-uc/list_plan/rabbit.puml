@@ -1,0 +1,22 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - Get all plans
+
+participant "PlanQ[n]:planQ" as PQ
+participant "Message Broker:" as mb
+
+activate mb
+PQ -> mb : subscribe(created_plan)
+PQ -> mb : subscribe(updated_plan)
+PQ -> mb : subscribe(deactivated_plan)
+deactivate mb
+
+note left
+[n] represents the instances
+it can be n instances
+end note
+
+
+@enduml

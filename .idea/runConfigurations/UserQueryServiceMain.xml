@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="UserQueryServiceMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="UserQueryService" nameIsGenerated="true">
+    <module name="user-query-service" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.UserQueryServiceMain" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

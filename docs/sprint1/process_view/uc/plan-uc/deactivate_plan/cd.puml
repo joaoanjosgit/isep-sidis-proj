@@ -1,0 +1,60 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide circle
+class PlansRepositoryBD <<interface>>
+
+title Class Diagram / As Marketing director, I want to deactivate a Plan
+
+
+
+class Plans{
+    -name
+    - description
+    - numberOfMinutes
+    -maximumNumberOfUsers
+    -musicCollection
+     -musicSuggestion
+     -annualFee
+     -monthlyFee
+     -active
+     -promoted
+     +deactivate(final long desiredVersion) : void
+}
+class PlansViewMapper{
+    +toPlansView(Plans plans):PlansView
+}
+class PlansController{
+     +deactivate(final String name):ResponseEntity<PlansView>
+     +deactivateExternal(final String name):ResponseEntity<PlansView>
+    }
+class PlansService{
+ +deactivate(final String name, final long desiredVersion):Plans
+ +deactivateExternal(final String name, final long desiredVersion):Plans
+
+}
+
+class PlansRepository{
+    +findIfNameExists(String name): boolean
+    +findByNameBD(String name): optional<Plans>
+    +deactivatePlanExternal(String plan, long version) : plans
+}
+
+interface PlansRepositoryBD
+{
++findByName_Name(String name): Optional<Plans>
++save(S entity) : <S extends Plans>
+}
+
+class PlansRepositoryExternal{
+    +httpExistPlan(String plan): boolean
+    +deactivatePlan(String plan, long version) : plans
+}
+
+
+PlansController ..> PlansService: uses >
+PlansService ..> PlansRepository: uses >
+PlansRepository ..> PlansRepositoryBD: uses >
+PlansRepository ..> PlansRepositoryExternal: uses >
+PlansRepositoryBD ..> Plans: < record
+PlansController ..>PlansViewMapper: uses >
+@enduml

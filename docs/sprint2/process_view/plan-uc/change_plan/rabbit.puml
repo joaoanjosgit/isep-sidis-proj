@@ -1,0 +1,26 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - Update a Plan
+
+actor "Marketing Director" as Ac
+participant "planC[n]:planC" as PC
+participant "PlanQ[n]:planQ" as PQ
+participant "SubsC[n]:SubsC" as SC
+participant "SubsQ[n]:SubsQ:" as SQ
+participant "Message Broker:" as mb
+
+activate mb
+PC -> mb : subscribe(updated_plan)
+PQ -> mb : subscribe(updated_plan)
+SC -> mb : subscribe(updated_plan)
+SQ -> mb : subscribe(updated_plan)
+deactivate mb
+
+note left
+[n] represents the the instances
+it can be n instances
+end note
+
+@enduml

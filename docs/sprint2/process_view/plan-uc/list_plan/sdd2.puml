@@ -1,0 +1,17 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - Get all plans
+
+actor "Marketing Director" as Ac
+participant "PlanQ[n]:planQ" as PQ
+
+Ac -> PQ ++ : GET/plans
+note left
+[n] represents the instances
+it can be n instances
+end note
+PQ --> Ac -- : informs operation (in)success
+
+@enduml

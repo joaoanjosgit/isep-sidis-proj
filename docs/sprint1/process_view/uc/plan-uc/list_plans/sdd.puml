@@ -1,0 +1,15 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - to know all existing plans
+
+actor "User" as Ac
+participant "System" as Sys
+
+Ac -> Sys : GET /plans
+Sys --> Ac : informs operation (in)success
+
+
+@enduml
+

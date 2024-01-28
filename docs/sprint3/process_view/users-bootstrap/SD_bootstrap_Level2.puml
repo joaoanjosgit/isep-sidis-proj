@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title Bootstrap Users Query/Command Level 2
+
+autoactivate on
+autonumber
+
+participant ":UsersQ/UsersC" as Users
+participant ":bootstrapUsers" as bootstrapUsers
+participant ":messageBroker" as MB
+
+note over Users: on initialization
+Users -> MB: publish{"users.bootstrap", "bootstrap.key"}
+MB --> bootstrapUsers: notify{users}
+bootstrapUsers -> MB: users
+MB--> Users: users
+
+@enduml

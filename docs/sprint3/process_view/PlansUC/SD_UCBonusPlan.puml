@@ -1,0 +1,49 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - Create new bonus plan that is assigned to a subscription
+
+actor "Consumer" as Ac
+participant "PlansC[n]:PlansC" as PC
+participant "SubsC[n]:SubsC" as Subs
+participant "Message Broker:" as mb
+
+
+Ac -> PC ++ : POST /plans/bonus/{userid}
+
+PC -> PC  :  save(plan)
+
+PC -> mb ++ : notify(created_bonus_sub, (plan, userid))
+
+note left
+[n] represents the instances
+it can be n instances
+end note
+PC --> Ac -- : ok
+
+...
+
+mb -> Subs ++ : notify(created_bonus_sub, (plan, userid))
+
+Subs -> Subs : save(newSubcription)
+
+
+Subs --> mb -- : boolean
+
+
+mb --> PC ++ : boolean
+
+PC -> mb -- : publish(created_bonus_plan, plan)
+
+...
+
+mb -> PC ++ : notify(created_bonus_plan, plan)
+PC -> PC -- : save(plan)
+
+mb -> Subs ++ : notify(created_bonus_plan, plan)
+Subs -> Subs -- : save(plan)
+
+deactivate mb
+
+@enduml

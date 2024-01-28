@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title Bootstrap Users Query/Command Level 2
+
+autoactivate on
+autonumber
+
+box "UsersQuery/Command"
+    participant ":AMQPSender" as Sender
+    note over Sender :on initialization
+    participant ":UsersRepository" as userRepo
+
+
+end box
+participant ":bootstrapUsers" as bootstrapUsers
+participant ":messageBroker" as MB
+
+
+Sender -> MB: publish{"users.bootstrap", "bootstrap.key"}
+MB --> bootstrapUsers: notify{users}
+bootstrapUsers -> MB: users
+MB--> Sender: users
+Sender -> userRepo: saveAll(users)
+userRepo--> Sender: ok
+
+@enduml

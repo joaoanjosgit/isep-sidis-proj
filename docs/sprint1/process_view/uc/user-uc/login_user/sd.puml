@@ -1,0 +1,35 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Sequence Diagram - As User, I want to log in an account
+
+actor "User" as Ac
+participant ":UserController" as Ctrl
+participant ":UserService" as Serv
+participant ":UserRepository" as Repo
+participant ":UserRepositoryBD" as RepoBD
+participant ":UserRepositoryExternal" as RepoExternal
+
+Ac -> Ctrl : POST /public/login
+alt user found in local
+    Ctrl -> Ctrl : login(final AuthRequest request)
+    Ctrl --> Ac : user
+else user not found in local
+    Ctrl -> Serv : loginExternal(AuthRequest authRequest)
+    Serv -> Repo : loginExternal(AuthRequest authRequest)
+    Repo -> RepoExternal : httpLogin(AuthRequest authRequest)
+    RepoExternal -> RepoExternal : POST /public/external/login
+
+    RepoExternal --> Repo : user
+    Repo --> Serv : user
+    Serv --> Ctrl : user
+
+    alt user found external
+        Ctrl --> Ac : user
+    else user not found external
+        Ctrl --> Ac : error 401
+    end
+end
+
+@enduml

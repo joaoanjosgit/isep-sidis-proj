@@ -1,0 +1,37 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+autoactivate on
+autonumber
+title Sequence Diagram/ As Marketing director, I want to deactivate a plan
+
+autonumber
+
+actor "Marketing Director" as Ac
+participant ":PlanController" as Ctrl
+participant ":PlansService" as Serv
+participant ":PlansRepository" as Repo
+participant ":CreatePlanJsonProducer" as producer
+participant ":Plans" as Mapper
+
+Ac -> Ctrl : PATCH/plans/deactivate/{name}
+Ctrl -> Serv :Plans plans = deactivate(name)
+Serv -> Repo :Optional<Plans> plans = findByName_Name(resource.getName())
+Repo --> Serv : plans
+note left
+1) Service will check if plan exists
+
+If 1 comes true,
+Service will trow IllegalArgumentException
+end note
+Serv -> Mapper :plan.deactivate()
+Mapper --> Serv: plan
+deactivate producer
+Serv -> Repo: save(obj)
+Repo --> Serv: plan
+
+Serv -> producer : sendMessage(obj)
+
+Serv --> Ctrl: plan
+Ac <-- Ctrl : plan
+
+@enduml

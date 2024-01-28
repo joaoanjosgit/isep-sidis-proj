@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+autonumber
+title Sequence Diagram/ As Marketing director, I want to define a new Plan detailing the monthly and annual cost, the maximum number of devices and other characteristics of the plan
+
+autonumber
+
+actor "Marketing Director" as Ac
+participant ":PlanController" as Ctrl
+participant ":PlansService" as Serv
+participant ":PlansRepository" as Repo
+participant ":CreatePlanJsonProducer" as producer
+
+Ac -> Ctrl ++ : POST /plans
+Ctrl -> Serv ++ :Plans plans = create(CreatePlanRequest resource)
+Serv -> Repo ++ :Optional<Plans> plans = findByName_Name(resource.getName())
+Repo --> Serv -- : plans
+note left
+1) Service will check if plan exists
+
+If 1 comes true,
+Service will trow IllegalArgumentException
+end note
+
+Serv -> Serv :Plans obj  = create(resource)
+
+Serv -> Repo ++: save(obj)
+Repo --> Serv --: obj
+
+Serv -> producer -- : sendMessage(obj)
+deactivate producer
+
+Serv --> Ctrl: obj
+Ac <-- Ctrl -- : obj
+
+@enduml

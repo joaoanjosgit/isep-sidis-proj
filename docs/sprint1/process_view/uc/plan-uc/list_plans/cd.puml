@@ -1,0 +1,56 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide circle
+class PlansRepositoryBD <<interface>>
+
+title Class Diagram / As User, I want to list all known Plans
+
+
+
+class Plans{
+    -name
+    - description
+    - numberOfMinutes
+    -maximumNumberOfUsers
+    -musicCollection
+     -musicSuggestion
+     -annualFee
+     -monthlyFee
+     -active
+     -promoted
+}
+class PlansViewMapper{
+    +toPlansView(List<Plans> plans):List<PlansView>
+}
+class PlansController{
+     +deactivate(final String name):ResponseEntity<PlansView>
+     +deactivateExternal(final String name):ResponseEntity<PlansView>
+    }
+class PlansService{
+ +findActive():List<Plans>
+ +findActiveExternal():List<Plans>
+
+}
+
+class PlansRepository{
+    +findByActiveBD() : List<Plans>
+    +getAllActivePlans() : List<Plans>
+}
+
+interface PlansRepositoryBD
+{
++findByActive_Active: List<Plans>
+}
+
+class PlansRepositoryExternal{
+    +httpGetAllActivePlans(): List<Plans>
+}
+
+
+PlansController ..> PlansService: uses >
+PlansService ..> PlansRepository: uses >
+PlansRepository ..> PlansRepositoryBD: uses >
+PlansRepository ..> PlansRepositoryExternal: uses >
+PlansRepositoryBD ..> Plans: < record
+PlansController ..>PlansViewMapper: uses >
+@enduml

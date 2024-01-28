@@ -1,0 +1,60 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide circle
+class PlansRepositoryBD <<interface>>
+
+title Class Diagram / As Marketing director, I want to edit a Plan
+
+
+
+class Plans{
+    -name
+    - description
+    - numberOfMinutes
+    -maximumNumberOfUsers
+    -musicCollection
+     -musicSuggestion
+     -annualFee
+     -monthlyFee
+     -active
+     -promoted
+     +updateData(long desiredVersion, String description, Integer maximumNumberOfUsers,String numberOfMinutes , Integer musicCollections,String musicSuggestions, Boolean active, Boolean promoted) void
+}
+class PlansViewMapper{
+    +toPlansView(Plans plans):PlansView
+}
+class PlansController{
+     +partialUpdate(final String name, final EditPlanRequest resource):ResponseEntity<PlansView>
+     +partialUpdateExternal(final String name, final EditPlanRequest resource):ResponseEntity<PlansView>
+    }
+class PlansService{
+ +partialUpdate(final String name, final EditPlansRequest resource, final long desiredVersion):Plans
+ +partialUpdateExternal(final String name, final EditPlansRequest resource, final long desiredVersion):Plans
+
+}
+
+class PlansRepository{
+    +findIfNameExists(String name): boolean
+    +findByNameBD(String name): optional<Plans>
+    +changePlanDetailsExternal(String plan, EditPlansRequest requestBody, long version) : plans
+}
+
+interface PlansRepositoryBD
+{
++findByName_Name(String name): Optional<Plans>
++save(S entity) : <S extends Plans>
+}
+
+class PlansRepositoryExternal{
+    +httpExistPlan(String plan): boolean
+    +changePlanDetails(String plan, EditPlansRequest requestBody, long version) : plans
+}
+
+
+PlansController ..> PlansService: uses >
+PlansService ..> PlansRepository: uses >
+PlansRepository ..> PlansRepositoryBD: uses >
+PlansRepository ..> PlansRepositoryExternal: uses >
+PlansRepositoryBD ..> Plans: < record
+PlansController ..>PlansViewMapper: uses >
+@enduml

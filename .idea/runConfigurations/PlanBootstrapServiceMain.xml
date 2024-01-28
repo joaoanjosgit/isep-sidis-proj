@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PlanBootstrapServiceMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="PlanBootstrapService" nameIsGenerated="true">
+    <module name="plan-bootstrap-service" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.PlanBootstrapServiceMain" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

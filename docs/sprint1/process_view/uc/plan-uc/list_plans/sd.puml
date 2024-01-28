@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+autoactivate on
+autonumber
+title  Sequence Diagram / As a new customer I want to know all existing plans
+
+autonumber
+
+actor "User" as Ac
+participant ":PlanController" as Ctrl
+participant ":PlansService" as Serv
+participant ":PlansRepository" as Repo
+participant ":PlansRepositoryBD" as RepoBD
+participant ":PlansRepositoryExternal" as RepoExternal
+participant ":PlansViewMapper" as View
+
+Ac -> Ctrl : GET /plans
+Ctrl -> Serv :findActiveExternal()
+
+Serv -> Repo :getAllActivePlans()
+Repo -> RepoBD : findByActive_Active(true)
+RepoBD --> Repo : list<plans>
+Repo -> RepoExternal : httpGetAllActivePlans()
+RepoExternal --> RepoExternal : GET /plans/external
+RepoExternal --> Repo : List<plansExternal>
+Repo --> Repo : plans.addAll(plansExternal)
+Repo --> Serv: plans
+
+Serv -->Ctrl: plans
+Ctrl ->View: toPlansView(plans)
+View -->Ctrl: plansView
+Ac <-- Ctrl : plansView
+
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+autoactivate on
+autonumber
+title  Sequence Diagram / As a new customer I want to know all existing plans
+
+autonumber
+
+actor "New Customer" as Ac
+participant ":PlanController" as Ctrl
+participant ":PlansService" as Serv
+participant ":PlansRepository" as Repo
+
+Ac -> Ctrl : GET /plans
+Ctrl -> Serv :Iterable<Plans> plans = findActive()
+
+Serv -> Repo :Iterable<Plans> plans = findActive_Active(true)
+Repo --> Serv: plans
+Serv -->Ctrl: plans
+Ac <-- Ctrl : plans
+
+@enduml

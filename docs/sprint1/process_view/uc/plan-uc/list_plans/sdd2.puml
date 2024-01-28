@@ -1,0 +1,23 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - List all known Plans
+
+actor "Marketing Director" as Ac
+box "System" #lightblue
+participant "plans1" as Sys
+participant "plans2" as Sys2
+end box
+
+Ac -> Sys : GET /plans
+Sys -> Sys : planList
+Sys -> Sys2 : GET /plans/external
+Sys2 --> Sys : planListExternal
+Sys -> Sys : addAll(planList, planListExternal)
+
+Sys --> Ac : informs operation (in)success
+
+
+
+@enduml

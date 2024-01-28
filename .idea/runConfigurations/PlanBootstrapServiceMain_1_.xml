@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PlanBootstrapServiceMain(1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="PlanBootstrapService">
+    <additionalParameters>
+      <param>
+        <option name="enabled" value="true" />
+        <option name="name" value="spring.datasource.url" />
+        <option name="value" value="jdbc:h2:~/plan-bootstrap1;MV_STORE=FALSE;AUTO_SERVER=true;" />
+      </param>
+    </additionalParameters>
+    <module name="plan-bootstrap-service" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.PlanBootstrapServiceMain" />
+    <option name="VM_PARAMETERS" value="-Dserver.port=8085" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

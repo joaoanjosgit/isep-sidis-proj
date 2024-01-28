@@ -1,0 +1,33 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - Create a subscription
+
+actor "Subscriber" as Ac
+participant "SubsC[n]:SubsC" as PC
+participant "SubsQ[n]:SubsQ" as PQ
+participant "Message Broker:" as mb
+
+
+Ac -> PC ++ : PATCH /subscriptions
+PC -> PC : save(subscription)
+PC -> mb ++ : publish(cancel_subscription, subscription)
+note left
+[n] represents the instances
+it can be n instances
+end note
+PC --> Ac -- : informs operation (in)success
+
+...
+
+mb -> PC ++ : notify(cancel_subscription, subscription)
+PC -> PC -- : save(plan)
+
+mb -> PQ ++ : notify(cancel_subscription, subscription)
+PQ -> PQ -- : save(plan)
+
+
+deactivate mb
+
+@enduml

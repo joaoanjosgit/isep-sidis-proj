@@ -1,0 +1,19 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="UserQueryServiceMain(1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="UserQueryService">
+    <additionalParameters>
+      <param>
+        <option name="enabled" value="true" />
+        <option name="name" value="spring.datasource.url" />
+        <option name="value" value="jdbc:h2:~/user-query1;MV_STORE=FALSE;AUTO_SERVER=true;" />
+      </param>
+    </additionalParameters>
+    <option name="ALTERNATIVE_JRE_PATH" value="17" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <module name="user-query-service" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.UserQueryServiceMain" />
+    <option name="VM_PARAMETERS" value="-Dserver.port=8101" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

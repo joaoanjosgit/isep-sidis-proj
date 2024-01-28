@@ -1,0 +1,35 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - Deactivate a Plan
+
+actor "Marketing Director" as Ac
+box "System" #lightblue
+participant "plans1" as Sys
+participant "plans2" as Sys2
+end box
+
+Ac -> Sys : PATCH /plans/deactivate/{name}
+Sys -> Sys : findPlan(name)
+Sys -> Sys2 : GET /plans/external/{name}
+Sys2 --> Sys : true or false
+
+alt nameNotExists - false
+    Sys --> Sys : informs operation insuccess
+else nameExists - true
+
+    alt Plan found in local repository
+        Sys -> Sys : deactivate(name)
+        Sys --> Ac : informs operation (in)success
+    else Plan not found in local repository
+        Sys -> Sys2 : PATCH /plans/deactivate/external/{name}
+        Sys2 --> Sys : informs operation (in)success
+        Sys --> Ac : informs operation (in)success
+    end
+
+end
+
+
+
+@enduml

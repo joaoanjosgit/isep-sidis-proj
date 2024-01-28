@@ -1,0 +1,64 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - To cancel a Subscription
+
+actor "Costumer" as Ac
+participant "Subscriptions1" as Sys
+participant "Subscriptions2" as Sys2
+
+
+Ac -> Sys : PATCH /subscriptions
+
+alt subscription not found
+Sys -> Sys : findSubscription
+
+
+Sys -> Sys2  : GET /plans/active/
+
+Sys2 -> Sys  : statusCode = 404
+
+Sys --> Ac : informs operation wasn't successful
+
+else subscription found
+
+
+alt subscription is saved internally
+
+
+Sys -> Sys : findSubscription
+
+Sys -> Sys : subscription.deactivate()
+Sys -> Sys : save
+
+Sys --> Ac : informs operation success
+
+else subscription is not saved internally
+
+Sys -> Sys2  : GET /plans/active/
+
+Sys2 -> Sys2 : subscription.deactivate()
+Sys2 -> Sys2 : save
+
+Sys2 -> Sys  : statusCode = 200
+
+
+Sys --> Ac : informs operation success
+
+
+end
+
+end
+
+
+
+
+
+
+
+
+
+
+@enduml
+

@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title Bootstrap Subscriptions Query/Command Level 3
+
+autoactivate on
+autonumber
+
+box "SubscriptionsQuery/Command"
+    participant ":AMQPSender" as Sender
+    note over Sender :on initialization
+    participant ":PlansRepository" as planRepo
+    participant ":SubscriptionRepository" as subRepo
+    participant ":UserRepository" as userRepo
+
+
+end box
+participant ":bootstrapPlans" as bootstrapPlans
+participant ":bootstrapSubscriptions" as bootstrapSubscriptions
+participant ":bootstrapUsers" as bootstrapUsers
+participant ":messageBroker" as MB
+
+
+Sender -> MB: publish{"plans.bootstrap", "bootstrap.key"}
+MB --> bootstrapPlans: notify{plans}
+bootstrapPlans -> MB: plans
+MB--> Sender: plans
+Sender -> planRepo: saveAll(plans)
+planRepo--> Sender: ok
+
+Sender -> MB: publish{"subscription.bootstrap", "bootstrap.key"}
+MB --> bootstrapSubscriptions: notify{subscriptions}
+bootstrapSubscriptions -> MB: subscriptions
+MB--> Sender: subscriptions
+Sender -> subRepo: saveAll(subscriptions)
+subRepo--> Sender: ok
+
+
+Sender -> MB: publish{"users.bootstrap", "bootstrap.key"}
+MB --> bootstrapUsers: notify{users}
+bootstrapUsers -> MB: users
+MB--> Sender: users
+Sender -> userRepo: saveAll(users)
+subRepo--> Sender: ok
+
+@enduml

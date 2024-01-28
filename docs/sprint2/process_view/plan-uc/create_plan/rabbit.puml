@@ -1,0 +1,25 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - Define a New Plan
+
+participant "planC[n]:planC" as PC
+participant "PlanQ[n]:planQ" as PQ
+participant "SubsC[n]:SubsC" as SC
+participant "SubsQ[n]:SubsQ:" as SQ
+participant "Message Broker:" as mb
+
+activate mb
+PC -> mb : subscribe(created_plan)
+PQ -> mb : subscribe(created_plan)
+SC -> mb : subscribe(created_plan)
+SQ -> mb : subscribe(created_plan)
+deactivate mb
+
+note left
+[n] represents the the instances
+it can be n instances
+end note
+
+@enduml

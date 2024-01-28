@@ -1,0 +1,14 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Sequence Diagram - As User, I want to log in an account
+
+actor "User" as Ac
+participant "UserC[n]:UserC" as UC
+
+Ac -> UC : POST /public/login
+    UC --> Ac : informs operation (in)success
+
+
+@enduml

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="PlanCommandDB" group="PlanCommandDB" uuid="bad31c5e-60a7-450f-917f-5d18ed1de08a">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/plan-command;MV_STORE=FALSE;AUTO_SERVER=true;</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="PlanCommad1DB" group="PlanCommandDB" uuid="a85d1591-29b4-4415-82a6-0a5cf1b144ee">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/plan-command1;MV_STORE=FALSE;AUTO_SERVER=true;</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="PlanQueryDB" group="PlanQueryDB" uuid="d0dfed47-b64b-4bdd-92d0-29ac3ad65564">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/plan-query;MV_STORE=FALSE;AUTO_SERVER=true;</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="PlanQuery1DB" group="PlanQueryDB" uuid="8218f8ef-b456-4a9a-bdc9-f4fca68f4345">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/plan-query1;MV_STORE=FALSE;AUTO_SERVER=true;</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="UserCommandDB" group="UserCommandDB" uuid="c73fd978-7342-444b-94b7-9cb254618696">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/user-command;MV_STORE=FALSE;AUTO_SERVER=true;</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="UserCommand1DB" group="UserCommandDB" uuid="16dde15d-5102-44e7-8584-0d1981aa3aca">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/user-command1;MV_STORE=FALSE;AUTO_SERVER=true;</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="UserQueryDB" group="UserQueryDB" uuid="dd55bd8c-676a-495b-91ff-f461d1e43b43">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/user-query;MV_STORE=FALSE;AUTO_SERVER=true;</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="UserQuery1DB" group="UserQueryDB" uuid="f796a3d1-0d3a-4f4e-9939-532ec825649b">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/user-query1;MV_STORE=FALSE;AUTO_SERVER=true;</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="PlanBootstrapDB" group="PlanBootstrapDB" uuid="362a7754-e866-4c93-9312-152cfa0c2b4e">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/plan-bootstrap;MV_STORE=FALSE;AUTO_SERVER=true;</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="PlanBootstrap1DB" group="PlanBootstrapDB" uuid="442a2c9a-9804-4b07-a92e-f6075a76f678">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/plan-bootstrap1;MV_STORE=FALSE;AUTO_SERVER=true;</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="UserBootstrapDB" group="UserBootstrapDB" uuid="a71a62b6-cf98-4c90-8a5f-2a2fe89d98df">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/user-bootstrap;MV_STORE=FALSE;AUTO_SERVER=true;</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="UserBootstrap1DB" group="UserBootstrapDB" uuid="bf23c8d1-1222-4d4d-8c9b-4325ed834702">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:~/user-bootstrap1;MV_STORE=FALSE;AUTO_SERVER=true;</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>

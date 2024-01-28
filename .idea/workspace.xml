@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="508db49a-eb91-44c6-b70e-412c2381df94" name="Changes" comment="Bootstrap documentation and changes in query subs">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/16dde15d-5102-44e7-8584-0d1981aa3aca.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/362a7754-e866-4c93-9312-152cfa0c2b4e.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/442a2c9a-9804-4b07-a92e-f6075a76f678.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8218f8ef-b456-4a9a-bdc9-f4fca68f4345.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a71a62b6-cf98-4c90-8a5f-2a2fe89d98df.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a85d1591-29b4-4415-82a6-0a5cf1b144ee.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bad31c5e-60a7-450f-917f-5d18ed1de08a.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bf23c8d1-1222-4d4d-8c9b-4325ed834702.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c73fd978-7342-444b-94b7-9cb254618696.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d0dfed47-b64b-4bdd-92d0-29ac3ad65564.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dd55bd8c-676a-495b-91ff-f461d1e43b43.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f796a3d1-0d3a-4f4e-9939-532ec825649b.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_12_2023_18_06__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_12_2023_18_06__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_12_2023_12_18__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_12_2023_12_18__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_01_2024_17_36__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_01_2024_17_36__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/sprint2/process_view/subscription-uc/create_subscription/sdd2.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sprint2/process_view/subscription-uc/create_subscription/sdd2.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plan-bootstrap-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/plan-bootstrap-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plan-command-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/plan-command-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plan-query-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/plan-query-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-bootstrap-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-bootstrap-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-command-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-command-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-bootstrap-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-bootstrap-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-command-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-command-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-query-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-query-service/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="UML Sequence" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2ZPboiTm6KD7QwNtgqtW8nBvXgH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultPlantUmlFileTemplate": "UML Sequence",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "corretto-18",
+    "last_opened_file_path": "C:/Users/Alexandre/IdeaProjects/sidis_1201132_1201128/subscription-query-service/src/main/java/com/example/psoft_22_23_project/subscriptionsmanagement/services",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "17dacc6b989885fb4d56dfc134b1ff2f",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "h2"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.psoft_22_23_project.plansmanagement.model" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Alexandre\IdeaProjects\sidis_1201132_1201128\subscription-query-service\src\main\java\com\example\psoft_22_23_project\subscriptionsmanagement\services" />
+      <recent name="C:\Users\Alexandre\IdeaProjects\sidis_1201132_1201128\subscription-query-service\src\main\java\com\example\psoft_22_23_project" />
+      <recent name="C:\Users\Alexandre\IdeaProjects\sidis_1201132_1201128\subscription-query-service\src\main\java\com\example\psoft_22_23_project\usermanagement" />
+      <recent name="C:\Users\Alexandre\IdeaProjects\sidis_1201132_1201128\subscription-query-service\src\main\java\com\example\psoft_22_23_project\usermanagement\model" />
+      <recent name="C:\Users\Asus\Desktop\Faculdade\2023_2024\SISDIS\project\subscription-query-service\src\main\java\com\example\psoft_22_23_project\subscriptionsmanagement\model" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Asus\Desktop\Faculdade\2023_2024\SISDIS\project\.idea" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.psoft_22_23_project.plansmanagement.service" />
+      <recent name="com.example.psoft_22_23_project.plansmanagement.model" />
+      <recent name="com.example.psoft_22_23_project.subscriptionsmanagement.model" />
+      <recent name="com.example.psoft_22_23_project.subscriptionsmanagement.services" />
+      <recent name="com.example.psoft_22_23_project.bootstrapping" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MavenRunConfiguration" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.SubscriptionBoostrapServiceMain (1)">
+    <configuration name="PlanCommandServiceMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="PlanCommandService" nameIsGenerated="true">
+      <module name="plan-command-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.PlanCommandServiceMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlanQueryServiceMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="PlanQueryService" nameIsGenerated="true">
+      <module name="plan-query-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.PlanQueryServiceMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SubscriptionBoostrapServiceMain (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="SubscriptionBoostrapService">
+      <additionalParameters>
+        <param>
+          <option name="enabled" value="true" />
+          <option name="name" value="spring.datasource.url" />
+          <option name="value" value="jdbc:h2:~/subs-bootstrap1;MV_STORE=FALSE;AUTO_SERVER=true;" />
+        </param>
+      </additionalParameters>
+      <module name="subscription-bootstrap-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.SubscriptionBoostrapServiceMain" />
+      <option name="VM_PARAMETERS" value="-Dserver.port=8095" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SubscriptionBoostrapServiceMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="SubscriptionBoostrapService" nameIsGenerated="true">
+      <module name="subscription-bootstrap-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.SubscriptionBoostrapServiceMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SubscriptionCommandServiceMain (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="SubscriptionCommandService">
+      <additionalParameters>
+        <param>
+          <option name="enabled" value="true" />
+          <option name="name" value="spring.datasource.url" />
+          <option name="value" value="jdbc:h2:~/subs-command1;MV_STORE=FALSE;AUTO_SERVER=true;" />
+        </param>
+      </additionalParameters>
+      <module name="subscription-command-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.SubscriptionCommandServiceMain" />
+      <option name="VM_PARAMETERS" value="-Dserver.port=8093" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SubscriptionCommandServiceMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="SubscriptionCommandService" nameIsGenerated="true">
+      <module name="subscription-command-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.SubscriptionCommandServiceMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SubscriptionQueryServiceMain (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="SubscriptionQueryService">
+      <additionalParameters>
+        <param>
+          <option name="enabled" value="true" />
+          <option name="name" value="spring.datasource.url" />
+          <option name="value" value="jdbc:h2:~/subs-query1;MV_STORE=FALSE;AUTO_SERVER=true;" />
+        </param>
+      </additionalParameters>
+      <module name="subscription-query-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.SubscriptionQueryServiceMain" />
+      <option name="VM_PARAMETERS" value="-Dserver.port=8091" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SubscriptionQueryServiceMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="SubscriptionQueryService" nameIsGenerated="true">
+      <module name="subscription-query-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.SubscriptionQueryServiceMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserCommandServiceMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="UserCommandService" nameIsGenerated="true">
+      <module name="user-command-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.UserCommandServiceMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserQueryServiceMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="UserQueryService" nameIsGenerated="true">
+      <module name="user-query-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.psoft_22_23_project.UserQueryServiceMain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.PlanBootstrapServiceMain" />
+      <item itemvalue="Spring Boot.PlanBootstrapServiceMain(1)" />
+      <item itemvalue="Spring Boot.PlanCommandServiceMain" />
+      <item itemvalue="Spring Boot.PlanCommandServiceMain(1)" />
+      <item itemvalue="Spring Boot.PlanQueryServiceMain" />
+      <item itemvalue="Spring Boot.PlanQueryServiceMain(1)" />
+      <item itemvalue="Spring Boot.SubscriptionBoostrapServiceMain" />
+      <item itemvalue="Spring Boot.SubscriptionBoostrapServiceMain (1)" />
+      <item itemvalue="Spring Boot.SubscriptionCommandServiceMain" />
+      <item itemvalue="Spring Boot.SubscriptionCommandServiceMain (1)" />
+      <item itemvalue="Spring Boot.SubscriptionQueryServiceMain" />
+      <item itemvalue="Spring Boot.SubscriptionQueryServiceMain (1)" />
+      <item itemvalue="Spring Boot.UserBootstrapServiceMain" />
+      <item itemvalue="Spring Boot.UserBootstrapServiceMain(1)" />
+      <item itemvalue="Spring Boot.UserCommandServiceMain" />
+      <item itemvalue="Spring Boot.UserCommandServiceMain(1)" />
+      <item itemvalue="Spring Boot.UserQueryServiceMain" />
+      <item itemvalue="Spring Boot.UserQueryServiceMain(1)" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="508db49a-eb91-44c6-b70e-412c2381df94" name="Changes" comment="" />
+      <created>1702326850202</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702326850202</updated>
+      <workItem from="1702326852942" duration="2273000" />
+      <workItem from="1702332019644" duration="399000" />
+      <workItem from="1702914435321" duration="4231000" />
+      <workItem from="1702930503669" duration="10294000" />
+      <workItem from="1702974643380" duration="327000" />
+      <workItem from="1702975523537" duration="3747000" />
+      <workItem from="1702984447619" duration="6967000" />
+      <workItem from="1703018341972" duration="2157000" />
+      <workItem from="1703430925339" duration="3522000" />
+      <workItem from="1703601832909" duration="1796000" />
+      <workItem from="1703868294804" duration="664000" />
+      <workItem from="1703884464792" duration="760000" />
+      <workItem from="1703891455390" duration="8442000" />
+      <workItem from="1703946389179" duration="521000" />
+      <workItem from="1703970426951" duration="9344000" />
+      <workItem from="1704476178259" duration="3632000" />
+      <workItem from="1704557240830" duration="5506000" />
+      <workItem from="1704652805651" duration="2185000" />
+      <workItem from="1704655014995" duration="1600000" />
+    </task>
+    <task id="LOCAL-00001" summary="plan-command-service">
+      <option name="closed" value="true" />
+      <created>1702942581579</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702942581579</updated>
+    </task>
+    <task id="LOCAL-00002" summary="plan-command-service update">
+      <option name="closed" value="true" />
+      <created>1703014530709</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1703014530709</updated>
+    </task>
+    <task id="LOCAL-00003" summary="plan-query-service update">
+      <option name="closed" value="true" />
+      <created>1703015635647</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1703015635648</updated>
+    </task>
+    <task id="LOCAL-00004" summary="user-command-service update">
+      <option name="closed" value="true" />
+      <created>1703021821356</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1703021821356</updated>
+    </task>
+    <task id="LOCAL-00005" summary="user-command-service update">
+      <option name="closed" value="true" />
+      <created>1703023153614</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1703023153614</updated>
+    </task>
+    <task id="LOCAL-00006" summary="docs">
+      <option name="closed" value="true" />
+      <created>1703433265515</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1703433265515</updated>
+    </task>
+    <task id="LOCAL-00007" summary="docs">
+      <option name="closed" value="true" />
+      <created>1703434404734</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1703434404734</updated>
+    </task>
+    <task id="LOCAL-00008" summary="second commit">
+      <option name="closed" value="true" />
+      <created>1703868943739</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1703868943739</updated>
+    </task>
+    <task id="LOCAL-00009" summary="P2 code fixes">
+      <option name="closed" value="true" />
+      <created>1703873755015</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1703873755017</updated>
+    </task>
+    <task id="LOCAL-00010" summary="plan-bootstrap-service impl">
+      <option name="closed" value="true" />
+      <created>1703896535101</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1703896535101</updated>
+    </task>
+    <task id="LOCAL-00011" summary="plan-bootstrap-service impl">
+      <option name="closed" value="true" />
+      <created>1703896592359</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1703896592359</updated>
+    </task>
+    <task id="LOCAL-00012" summary="user-bootstrap-service impl">
+      <option name="closed" value="true" />
+      <created>1703980671773</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1703980671773</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Bootstrap documentation and changes in query subs">
+      <created>1704654497155</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1704654497155</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="plan-command-service" />
+    <MESSAGE value="plan-command-service update" />
+    <MESSAGE value="plan-query-service update" />
+    <MESSAGE value="user-command-service update" />
+    <MESSAGE value="docs" />
+    <MESSAGE value="second commit" />
+    <MESSAGE value="P2 code fixes" />
+    <MESSAGE value="plan-bootstrap-service impl" />
+    <MESSAGE value="user-bootstrap-service impl" />
+    <MESSAGE value="Bootstrap documentation and changes in query subs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bootstrap documentation and changes in query subs" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.example.psoft_22_23_project.plansmanagement.repositories.PlansRepositoryExternal$$EnhancerBySpringCGLIB$$8d6068d" memberName="CGLIB$BOUND" />
+        <PinnedItemInfo parentTag="java.net.URI" memberName="decodedSchemeSpecificPart" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>

@@ -1,0 +1,15 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - Define a New Plan
+
+actor "Marketing Director" as Ac
+participant "System" as Sys
+
+Ac -> Sys : POST /plans
+Sys --> Ac : informs operation (in)success
+
+
+@enduml
+

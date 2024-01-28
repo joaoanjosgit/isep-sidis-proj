@@ -1,0 +1,74 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - To create a Subscription
+
+actor "Costumer" as Ac
+participant "Subscriptions1" as Sys
+participant "Plans1" as Plan
+participant "Plans2" as Plan2
+participant "Subscriptions2" as Sys2
+
+
+Ac -> Sys : POST /subscriptions/create
+
+Sys -> Plan  : GET /plans/active/
+
+Sys -> Plan2 : GET /plans/active/
+
+alt plan not found
+
+Plan -> Sys  : statusCode = 404
+
+Plan2 -> Sys  : statusCode = 404
+
+Sys --> Ac : informs operation wasn't successful
+
+
+
+
+else plan found
+
+Plan -> Sys  : statusCode = 200
+Plan2 -> Sys  : statusCode = 404
+
+alt subscription found
+Sys -> Sys : findSubscription
+
+
+Sys -> Sys2  : GET /plans/active/
+
+Sys2 -> Sys  : statusCode = 200
+
+Sys --> Ac : informs operation wasn't successful
+
+else subscription not found
+
+Sys -> Sys : findSubscription
+
+
+Sys -> Sys2  : GET /plans/active/
+
+Sys2 -> Sys  : statusCode = 404
+
+end
+
+Sys -> Sys : create
+
+Sys -> Sys : save
+
+Sys --> Ac : informs operation success
+
+end
+
+
+
+
+
+
+
+
+
+@enduml
+

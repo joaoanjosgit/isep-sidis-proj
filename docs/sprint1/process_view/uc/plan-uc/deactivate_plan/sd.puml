@@ -1,0 +1,56 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Sequence Diagram - Deactivate a Plan
+
+Actor "Marketing Director" as Ac
+participant "PlanController" as Ctrl
+participant "PlansService" as Serv
+participant "PlansRepository" as Repo
+participant "PlansRepositoryBD" as RepoBD
+participant "PlansRepositoryExternal" as RepoExternal
+participant "Plans" as Plan
+
+Ac -> Ctrl: PATCH /plans/deactivate/{name}
+Ctrl -> Serv: deactivate(String name, long version)
+
+Serv -> Repo: findIfNameExists(name)
+Repo -> RepoBD: findByName_Name(name)
+alt Name found in local Repo
+    RepoBD --> Repo: Name exists locally
+    Repo --> Serv: true
+else Name not found in local Repo
+    Repo -> RepoExternal: httpExistPlan(name)
+    RepoExternal -> RepoExternal: GET /plans/external/{name}
+    RepoExternal --> Repo: Response from external system
+    alt Name found in external Repo
+        Repo --> Serv: true
+    else Name not found in external Repo
+        Repo --> Serv: false
+    end
+end
+
+Repo --> Serv: true or false
+alt Plan doesn't exist - false
+    Serv --> Ctrl: Throw IllegalArgumentException
+else Plan exists - true
+    Serv -> Repo: findByNameBD(name)
+    Repo -> RepoBD: findByName_Name(name)
+    alt Plan found in local repository
+        Serv -> Plan: deactivatePlanExternal(name, version)
+        Serv --> Repo: saveBD(plan)
+        Repo --> Serv: Updated Plan
+    else Plan not found in local repository
+        Serv -> Repo: deactivatePlanExternal(name, version)
+        Repo -> RepoExternal: deactivatePlan(name, version)
+        RepoExternal --> RepoExternal: PATCH /plans/deactivate/external/{name}
+        RepoExternal --> Repo: Updated Plan (external)
+        Repo --> Serv: Updated Plan
+    end
+end
+
+Serv --> Ctrl: Updated Plan
+Ctrl --> Ac: Updated Plan
+
+@enduml

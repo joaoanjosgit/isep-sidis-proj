@@ -1,0 +1,25 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Software Design Document - As User, I want to register an account
+
+participant "userC[n]:UserC" as UC
+participant "userQ[n]:UserQ" as UQ
+participant "SubsC[n]:SubsC" as SC
+participant "SubsQ[n]:SubsQ:" as SQ
+participant "Message Broker:" as mb
+
+activate mb
+UC -> mb : subscribe(register_user)
+UQ -> mb : subscribe(register_user)
+SC -> mb : subscribe(register_user)
+SQ -> mb : subscribe(register_user)
+deactivate mb
+
+note left
+[n] represents the the instances
+it can be n instances
+end note
+
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Sequence Diagram - As User, I want to log in an account
+
+actor "User" as Ac
+box "System" #lightblue
+participant "user1" as Sys
+participant "user2" as Sys2
+end box
+
+Ac -> Sys : POST /public/login
+alt user found in local
+    Sys -> Sys : login(request)
+    Sys --> Ac : informs operation (in)success
+else user not found in local
+    Sys -> Sys2 : POST /public/external/login
+    Sys2 --> Sys : informs operation (in)success
+    Sys --> Ac : informs operation (in)success
+end
+
+
+@enduml

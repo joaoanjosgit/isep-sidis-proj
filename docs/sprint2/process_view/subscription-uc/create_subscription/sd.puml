@@ -1,0 +1,63 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+autonumber
+title Sequence Diagram/ I want to subscribe to a new Plan
+
+autonumber
+
+actor "Consumer" as Ac
+participant ":SubsController" as Ctrl
+participant ":SubsService" as Serv
+participant ":SubsRepository" as Repo
+participant ":CreateSubsJsonProducer" as producer
+
+Ac -> Ctrl ++ : POST /subscriptions/create
+Ctrl -> Serv ++ :Subscriptions subscriptions = create(CreateSubscriptionsRequest resource)
+Serv -> Repo ++ :	Optional<Plans> findByActive_ActiveAndName_Name(boolean active, String name_name)
+Repo --> Serv -- : plans
+
+note left
+1) Service will check if plan exists
+
+If 1 comes true,
+Service will trow IllegalArgumentException
+end note
+
+Serv -> Repo ++ :	Optional<Subscriptions> findByActiveStatus_ActiveAndUser(boolean active, User user)
+Repo --> Serv -- : user
+
+note left
+2) Service will check if user exists
+in the system
+
+If 1 comes true,
+Service will trow IllegalArgumentException
+end note
+
+Serv -> Repo ++ :	Optional<User> findById(Long objectId);
+Repo --> Serv -- : existingSubscription
+Serv -> Repo ++ : existingSubscription.isPresent()
+Repo --> Serv -- : true/false
+
+
+note left
+3) Service will check if user already
+has a subscription
+
+If 1 comes true,
+Service will trow IllegalArgumentException
+end note
+
+
+Serv -> Serv : Subscriptions obj = createSubscriptionsMapper.create(user, plan, resource)
+
+Serv -> Repo ++: save(obj)
+Repo --> Serv --: obj
+
+Serv -> producer -- : sendMessage(obj)
+deactivate producer
+
+Serv --> Ctrl: obj
+Ac <-- Ctrl -- : obj
+
+@enduml

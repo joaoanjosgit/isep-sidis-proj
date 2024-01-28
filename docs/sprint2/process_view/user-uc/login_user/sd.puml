@@ -1,0 +1,15 @@
+@startuml
+'autocomplete on
+autonumber
+
+title Sequence Diagram - As User, I want to log in an account
+
+actor "User" as Ac
+participant ":UserController" as Ctrl
+
+Ac -> Ctrl : POST /public/login
+    Ctrl -> Ctrl : login(final AuthRequest request)
+    Ctrl --> Ac : user
+
+
+@enduml
